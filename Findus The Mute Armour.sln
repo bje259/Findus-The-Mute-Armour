@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Findus The Mute Armour", "Findus The Mute Armour.csproj", "{3724AF9A-1765-4FBD-B4BF-1C7A89CF2510}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Findus", "Findus.csproj", "{3724AF9A-1765-4FBD-B4BF-1C7A89CF2510}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

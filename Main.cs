@@ -64,7 +64,21 @@ namespace Findus
         public static bool IsEnabled = false;
         public static UnityModManager.ModEntry.ModLogger logger;
         public static Findus.UI.InventorySmartItemVM InventorySmartItem;
+
         public static BlueprintHiddenItem itm;
+        public static string GetDescription(ItemEntity item)
+        {
+            try
+            {
+                var stringg = "This is a +" + item.Enchantments.FirstOrDefault(a => FindusHandler.EnhancementBoni.Values.Contains(a.Blueprint.AssetGuidThreadSafe)) + " " + FindusHandler.ArmourTypes_description[item.Blueprint.AssetGuidThreadSafe];
+                return stringg;
+            }
+            catch(Exception e)
+            {
+                Main.logger.Error(e.ToString());
+                return "";
+            }
+        }
         public static void Log(string ina)
         {
             logger.Log(ina);
@@ -78,21 +92,21 @@ namespace Findus
             try
             {
                 //TabletopTweaks.Config.ModSettings.ModEntry = modEntry;
-               
-               // var harmony = new Harmony(modEntry.Info.Id);
-               // harmony.PatchAll();
+
+                // var harmony = new Harmony(modEntry.Info.Id);
+                // harmony.PatchAll();
 #if DEBUG
-               // modEntry.OnGUI = OnGui;
+                // modEntry.OnGUI = OnGui;
 #endif
                 //modEntry.OnUnload = Unload;
                 //modEntry.OnToggle = OnToggle;
                 //TabletopTweaks.Config.ModSettings.ModEntry = modEntry;
                 //TabletopTweaks.Config.ModSettings.LoadAllSettings();
                 //TabletopTweaks.Config.ModSettings.ModEntry.OnSaveGUI = OnSaveGUI;
-               // TabletopTweaks.Config.ModSettings.ModEntry.OnGUI = OnGui;
-               // harmony.PatchAll();
-               // PostPatchInitializer.Initialize();
-                
+                // TabletopTweaks.Config.ModSettings.ModEntry.OnGUI = OnGui;
+                // harmony.PatchAll();
+                // PostPatchInitializer.Initialize();
+
                 var harmony = new Harmony(modEntry.Info.Id);
                 TabletopTweaks.Config.ModSettings.ModEntry = modEntry;
                 logger = modEntry.Logger;
@@ -111,7 +125,7 @@ namespace Findus
         }
         static void OnSaveGUI(UnityModManager.ModEntry modEntry)
         {
-           // ModSettings.SaveSettings("Fixes.json", ModSettings.Fixes);
+            // ModSettings.SaveSettings("Fixes.json", ModSettings.Fixes);
             //ModSettings.SaveSettings("AddedContent.json", ModSettings.AddedContent);
             //ModSettings.SaveSettings("Homebrew.json", ModSettings.Homebrew);
         }
@@ -134,40 +148,40 @@ namespace Findus
                 {
                     var fionaitem = Game.Instance.Player.Inventory.Add(itm.CreateEntity());
                     InventorySmartItem = new UI.InventorySmartItemVM(new UniRx.ReactiveProperty<UnitDescriptor>(Game.Instance.Player.AllCharacters.First().Descriptor), fionaitem, () => { });
-                    InventorySmartItem.SmartItemSlotVM = new SmartItemSlotVM(InventorySmartItem.m_SmartItem,InventorySmartItem.EquipItem,InventorySmartItem.EquipItemInSlot);
+                    InventorySmartItem.SmartItemSlotVM = new SmartItemSlotVM(InventorySmartItem.m_SmartItem, InventorySmartItem.EquipItem, InventorySmartItem.EquipItemInSlot);
                     InventorySmartItem.RefreshData();
                     InventorySmartItem.SelectItem(2);
                     InventorySmartItem.EquipItem(InventorySmartItem.CurrentPolymorph);
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     Main.logger.Log(e.ToString());
                 }
             }
-            if(GUILayout.Button("fdassfad"))
+            if (GUILayout.Button("fdassfad"))
             {
                 InventorySmartItem.SelectItem(1);
                 InventorySmartItem.EquipItem(InventorySmartItem.SmartItemSlotVM.Item.Value);
-                
+
             }
             if (GUILayout.Button("Generate Armor Enchant List"))
             {
                 foreach (var enchantbp in Utilities.GetAllBlueprints().Entries.Where(b => b.Type == typeof(BlueprintArmorEnchantment)).Select(a => ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>(a.Guid)))
                 {
-                      if(enchantbp.Description.Length > 0)
-                    Main.logger.Log("m_EnchantsÄ[\"" + enchantbp.Name + "\"] = \"" + enchantbp.AssetGuidThreadSafe + "\";");
+                    if (enchantbp.name.Contains("Resist"))
+                        Main.logger.Log("m_Enchants1[\"" + enchantbp.Name + "\"] = \"" + enchantbp.AssetGuidThreadSafe + "\";");
                 }
             }
         }
 #endif
     }
-    [HarmonyPatch(typeof(Game),"OnAreaLoaded")]
+    [HarmonyPatch(typeof(Game), "OnAreaLoaded")]
     public static class onarealoaded
     {
         public static void Postfix()
         {
             var findus = ResourcesLibrary.TryGetBlueprint<BlueprintHiddenItem>("cd63240271f74379bfcf586ff29c34ba");
-            if(!Game.Instance.Player.Inventory.Any(a => a.Blueprint.AssetGuid == "cd63240271f74379bfcf586ff29c34ba"))
+            if (!Game.Instance.Player.Inventory.Any(a => a.Blueprint.AssetGuid == "cd63240271f74379bfcf586ff29c34ba"))
             {
                 Game.Instance.Player.Inventory.Add(findus);
             }
@@ -176,6 +190,21 @@ namespace Findus
     [HarmonyPatch(typeof(BlueprintsCache), "Init")]
     public static class initpatch
     {
+        public static List<string> armortypeslist = new List<string>()
+        {
+                        "1638fa11f5af1814191cf6c05cdcf2b6",
+                        "9809987cc12d94545a64ff20e6fdb216",
+                        "02e9f83be5d1c5d4e927b5c44ed34840",
+                        "c65f6fc979d5556489b20e478189cbdd",
+                        "559b0b6f194656c428c403a000ceee78",
+                        "ed6bbd7ecd050c04690fe11d4c3b3f7d",
+                        "9e27c61d6eac09e4ba98980e6df3645c",
+                        "385be51e5706a55418384f70d8341371",
+                        "9f76e9a3353e914479c5ddb4b4a82fb4",
+                        "598540b85673d984a8d45effcadda93f",
+                        "d7963e1fcf260c148877afd3252dbc91",
+                        "afbe88d27a0eb544583e00fa78ffb2c7"
+        };
         public static void Postfix()
         {
 
@@ -203,7 +232,7 @@ namespace Findus
                 //if (component.m_PolymorphItems == null) component.m_PolymorphItems = new List<BlueprintItemReference>();
                 //component.m_PolymorphItems.Clear();
                 var armortypes = new List<BlueprintItemArmor>();
-                foreach(var armor in Findus.FionaHandler.ArmourTypes.Values)
+                foreach (var armor in armortypeslist)
                 {
                     var ja = ResourcesLibrary.TryGetBlueprint<BlueprintItemArmor>(armor);
                     var newbp = TabletopTweaks.Utilities.Helpers.CreateCopy<BlueprintItemArmor>(ja);
@@ -234,15 +263,28 @@ namespace Findus
                 //var part = Main.itm.Ensure<ItemPolymorph.ItemPolymorphPart>();
                 //part.ApplyPostLoadFixes();
                 Main.itm = jo;
-               // ResourcesLibrary.BlueprintsCache.AddCachedBlueprint(new BlueprintGuid(new Guid("fhg93f7cf2b150e4f5jg2b3c389ba74h")),jo);
+                // ResourcesLibrary.BlueprintsCache.AddCachedBlueprint(new BlueprintGuid(new Guid("fhg93f7cf2b150e4f5jg2b3c389ba74h")),jo);
                 //var dfsfd = jo.CreateEntity();
-                
+
                 //var dfa = new HashSet<BlueprintItemReference>(bid);
             }
             catch (Exception e)
             {
                 Main.logger.Log(e.ToString());
             }
+        }
+    }
+    [HarmonyPatch(typeof(ItemEntity), "Description", MethodType.Getter)]
+    public static class DescriptionPatch
+    {
+        public static bool Prefix(ItemEntity __instance, ref string __result)
+        {
+            if (Findus.FindusHandler.ArmourTypes.Values.Contains(__instance.Blueprint.AssetGuidThreadSafe))
+            {
+                __result = Main.GetDescription(__instance);
+                return false;
+            }
+            return true;
         }
     }
 }

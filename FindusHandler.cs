@@ -22,7 +22,7 @@ namespace Findus
     //Add item with ItemPolyMorphPart
 
 
-    public static class FionaHandler
+    public static class FindusHandler
     {
        /* public static void RefreshFinneanItems(this InventorySmartItemVM SmartItemVM)
         {
@@ -43,6 +43,7 @@ namespace Findus
         }*/
         public static Dictionary<string, string> EnchantsTier1
         {
+            //Do scaling resistance too
             get
             {
                 if (m_Enchants1 == null)
@@ -50,26 +51,34 @@ namespace Findus
                     try
                     {
                         m_Enchants1 = new Dictionary<string, string>();
-                        m_Enchants1["Agile"] = "a36ad92c51789b44fa8a1c5c116a1328";
-                        m_Enchants1["Bleed"] = "ac0108944bfaa7e48aa74f407e3944e3";
-                        m_Enchants1["Corrosive"] = "633b38ff1d11de64a91d490c683ab1c8";
-                        m_Enchants1["Cruel"] = "629c383ffb407224398bb71d1bd95d14";
-                        m_Enchants1["Cruel"] = "629c383ffb407224398bb71d1bd95d14";
-                        m_Enchants1["Destructive"] = "5b1550c536bd09740bf43a6ddd1ad919";
-                        m_Enchants1["Disruption"] = "0f20d79b7049c0f4ca54ca3d1ea44baa";
-                        m_Enchants1["Flaming"] = "1daab3baedcd2db4e9f596ae91bff1c5";
-                        m_Enchants1["Frost"] = "421e54078b7719d40915ce0672511d0b";
-                        m_Enchants1["Furious"] = "b606a3f5daa76cc40add055613970d2a";
-                        m_Enchants1["Heartseeker"] = "e252b26686ab66241afdf33f2adaead6";
-                        m_Enchants1["Improved Critical Multiplier"] = "5b1550c536bd09740bf43a6ddd1ad919";
-                        m_Enchants1["Keen"] = "102a9c8c9b7a75e4fb5844e79deaf4c0";
-                        m_Enchants1["Necrotic"] = "7f727c7023be4854babc44d3ee756d31";
-                        m_Enchants1["Nullifying"] = "efbe3a35fc7349845ac9f96b4c63312e";
-                        m_Enchants1["Radiant"] = "5ac5c88157f7dde48a2a5b24caf40131";
-                        m_Enchants1["Shock"] = "7bda5277d36ad114f9f9fd21d0dab658";
-                        m_Enchants1["Speed"] = "f1c0c50108025d546b2554674ea1c006";
-                        m_Enchants1["Thundering"] = "690e762f7704e1f4aa1ac69ef0ce6a96";
-                        m_Enchants1["Vicious"] = "0f5c798466b1c2841b2cdc712ce86c27";
+                        m_Enchants1["Adamantine"] = "933456ff83c454146a8bf434e39b1f93";
+                        m_Enchants1["Adamantine"] = "5faa3aaee432ac444b101de2b7b0faf7";
+                        m_Enchants1["Adamantine"] = "aa25531ab5bb58941945662aa47b73e7";
+                        m_Enchants1["Enhancement +1"] = "a9ea95c5e02f9b7468447bc1010fe152";
+                        m_Enchants1["Enhancement +2"] = "758b77a97640fd747abf149f5bf538d0";
+                        m_Enchants1["Enhancement +3"] = "9448d3026111d6d49b31fc85e7f3745a";
+                        m_Enchants1["Enhancement +4"] = "eaeb89df5be2b784c96181552414ae5a";
+                        m_Enchants1["Enhancement +5"] = "6628f9d77fd07b54c911cd8930c0d531";
+                        m_Enchants1["Enhancement +6"] = "de15272d1f4eb7244aa3af47dbb754ef";
+                        m_Enchants1["Arrow Deflection"] = "faf86f0f02b30884c860b675a0df8e2e";
+                        m_Enchants1["Light Fortification"] = "1e69e9029c627914eb06608dad707b36";
+                        m_Enchants1["Moderate Fortification"] = "62ec0b22425fb424c82fd52d7f4c02a5";
+                        m_Enchants1["Heavy Fortification"] = "9b1538c732e06544bbd955fee570a2be";
+                        m_Enchants1["Conditioning"] = "d884882b038db4741a12b006e9de3e8b";
+                        m_Enchants1["Greater Shadow"] = "6b090a291c473984baa5b5bb07a1e300";
+                        m_Enchants1["Hundred Pockets"] = "710c2a979241a5a4d846b3d6232190fb";
+                        m_Enchants1["Mithral"] = "7b95a819181574a4799d93939aa99aff";
+                        m_Enchants1["Shadow"] = "d64d7aa52626bc24da3906dce17dbc7d";
+                        m_Enchants1["Singing Steel"] = "451601816a45311419b77b83f253b75b";
+                        m_Enchants1["Tower Shield"] = "f6b1f4378dd64044db145a1c2afa589f";
+                        m_Enchants1["Arcane Armor Balanced"] = "53fba8eec3abd214b98a57b12d7ad0a7";
+                        m_Enchants1["Arcane Armor Invulnerability"] = "4ffa3c3d5f6cdfb4eaf15f11d8e55bd1";
+                        m_Enchants1["Arcane Armor Shadow"] = "4e916cbeced676f4e83e02ac65dc562c";
+                        m_Enchants1["Arcane Armor Shadow Greater"] = "dd8f2032f05d72740961fc95201a5b15";
+                        m_Enchants1["Electric Aura"] = "8e7f512654a46d949a1eee77249bd75d";
+                        m_Enchants1["Acid Aura"] = "87b96ae9ecf792741b409e85bebe30a7";
+                        m_Enchants1["Fire Aura"] = "dcf93e8d4b970ee408b410f2b01ad13f";
+                        m_Enchants1["Cold Aura"] = "54d0633c038e96b4a9d5422e0801dfb5";
                     }
                     catch (Exception e)
                     {
@@ -90,18 +99,18 @@ namespace Findus
                     try
                     {
                         m_ArmourTypes = new Dictionary<string, string>();
-                        m_ArmourTypes["Banded Mail"] = "1638fa11f5af1814191cf6c05cdcf2b6";
-                        m_ArmourTypes["Breastplate"] = "9809987cc12d94545a64ff20e6fdb216";
-                        m_ArmourTypes["Chainmail"] = "02e9f83be5d1c5d4e927b5c44ed34840";
-                        m_ArmourTypes["Chainshirt"] = "c65f6fc979d5556489b20e478189cbdd";
-                        m_ArmourTypes["Full Plate"] = "559b0b6f194656c428c403a000ceee78";
-                        m_ArmourTypes["Half-Plate"] = "ed6bbd7ecd050c04690fe11d4c3b3f7d";
-                        m_ArmourTypes["Haramaki"] = "9e27c61d6eac09e4ba98980e6df3645c";
-                        m_ArmourTypes["Hide Armor"] = "385be51e5706a55418384f70d8341371";
-                        m_ArmourTypes["Leather Armor"] = "9f76e9a3353e914479c5ddb4b4a82fb4";
-                        m_ArmourTypes["Padded Armor"] = "598540b85673d984a8d45effcadda93f";
-                        m_ArmourTypes["Scalemail"] = "d7963e1fcf260c148877afd3252dbc91";
-                        m_ArmourTypes["Studded Leather"] = "afbe88d27a0eb544583e00fa78ffb2c7";
+                        m_ArmourTypes["Findus the Banded Mail"] = "1c1db1866104435ea7fc27b9c3faa97f";
+                        m_ArmourTypes["Findus the Breastplate"] = "1ed08893c9204efe8a3310c8dbe74665";
+                        m_ArmourTypes["Findus the Chainmail"] = "0a210038fd6d45d281f13b7fba76222f";
+                        m_ArmourTypes["Findus the Chainshirt"] = "701a856bc3624eccba521da7adfec348";
+                        m_ArmourTypes["Findus the Full Plate"] = "2664412ea3364d1b9d02dfd86615038e";
+                        m_ArmourTypes["Findus the Half-Plate"] = "59e441aca8ba4b97bf99f59c5a337a99";
+                        m_ArmourTypes["Findus the Haramaki"] = "7e511945a1774159ba86574253c823cb";
+                        m_ArmourTypes["Findus the Hide Armor"] = "e10f7792e0a0401ca5142481d22046bd";
+                        m_ArmourTypes["Findus the Leather Armor"] = "607a2f03425c4e468c3f7263732523c3";
+                        m_ArmourTypes["Findus the Padded Armor"] = "50aec32db4d24f7c9e085dfbef4162d3";
+                        m_ArmourTypes["Findus the Scalemail"] = "e7789ce40b9e4878922af7f8f7f9f534";
+                        m_ArmourTypes["Findus the Studded Leather"] = "18552b85ceb6491190f21fdb086bff76";
                     }
                     catch (Exception e)
                     {
@@ -113,43 +122,39 @@ namespace Findus
             }
         }
         public static Dictionary<string, string> m_ArmourTypes;
-        public static Dictionary<string, string> EnchantsTier2
+
+        public static Dictionary<string, string> ArmourTypes_description
         {
             get
             {
-                if (m_Enchants2 == null)
+                if (m_ArmourTypesDescription == null)
                 {
-                    m_Enchants2 = new Dictionary<string, string>();
-                    m_Enchants2["Anarchic"] = "57315bc1e1f62a741be0efde688087e9";
-                    m_Enchants2["Axiomatic"] = "0ca43051edefcad4b9b2240aa36dc8d4";
-                    m_Enchants2["Bleed"] = "ac0108944bfaa7e48aa74f407e3944e3";
-                    m_Enchants2["Brilliant Energy"] = "66e9e299c9002ea4bb65b6f300e43770";
-                    m_Enchants2["Caustic"] = "2becfef47bec13940b9ee71f1b14d2dd";
-                    m_Enchants2["Corrosive Burst"] = "0cf34703e67e37b40905845ca14b1380";
-                    m_Enchants2["Deteriorative"] = "bbe55d6e76b973d41bf5abeed643861d";
-                    m_Enchants2["Flaming Burst"] = "3f032a3cd54e57649a0cdad0434bf221";
-                    m_Enchants2["Freezing"] = "00049f6046b20394091b29702c6e9617";
-                    m_Enchants2["Furyborn"] = "091e2f6b2fad84a45ae76b8aac3c55c3";
-                    m_Enchants2["Greater Corrosive"] = "d0c3002b7efc3b647993df15b3bcb65d";
-                    m_Enchants2["Greater Flaming"] = "5f2fdab15f558084494b83b48064a844";
-                    m_Enchants2["Greater Flaming"] = "a6064c14629de6d48bec8e8e0460f661";
-                    m_Enchants2["Greater Frost"] = "83e7559124cb78a4c9d61360d3a4c3c2";
-                    m_Enchants2["Greater Necrotic"] = "c2229230ff9292048b07a8429d6536c6";
-                    m_Enchants2["Greater Shock"] = "b1de8528121b80844bd7cf09d9e1cf00";
-                    m_Enchants2["Holy"] = "28a9964d81fedae44bae3ca45710c140";
-                    m_Enchants2["Icy Burst"] = "564a6924b246d254c920a7c44bf2a58b";
-                    m_Enchants2["Incinerating"] = "5e0e5de297c229f42b00c5b1738b50fa";
-                    m_Enchants2["Lethal"] = "b28d69b00bbd4e1438a3ca951ab8c860";
-                    m_Enchants2["Necrotic Burst"] = "83612e733df422742818a69bf94f57fc";
-                    m_Enchants2["Shocking Burst"] = "914d7ee77fb09d846924ca08bccee0ff";
-                    m_Enchants2["Thundering Burst"] = "83bd616525288b34a8f34976b2759ea1";
-                    m_Enchants2["Ultrasound"] = "582849db96824254ebcc68f0b7484e51";
-                    m_Enchants2["Unholy"] = "d05753b8df780fc4bb55b318f06af453";
+                    try
+                    {
+                        m_ArmourTypesDescription = new Dictionary<string, string>();
+                        m_ArmourTypesDescription["1c1db1866104435ea7fc27b9c3faa97f"] = "Banded Mail";
+                        m_ArmourTypesDescription["1ed08893c9204efe8a3310c8dbe74665"] = "Breastplate";
+                        m_ArmourTypesDescription["0a210038fd6d45d281f13b7fba76222f"] = "Chainmail";
+                        m_ArmourTypesDescription["701a856bc3624eccba521da7adfec348"] = "Chainshirt";
+                        m_ArmourTypesDescription["2664412ea3364d1b9d02dfd86615038e"] = "Full Plate";
+                        m_ArmourTypesDescription["59e441aca8ba4b97bf99f59c5a337a99"] = "Half-Plate";
+                        m_ArmourTypesDescription["7e511945a1774159ba86574253c823cb"] = "Haramaki";
+                        m_ArmourTypesDescription["e10f7792e0a0401ca5142481d22046bdr"] = "Hide Armor";
+                        m_ArmourTypesDescription["607a2f03425c4e468c3f7263732523c3"] = "Leather Armor";
+                        m_ArmourTypesDescription["50aec32db4d24f7c9e085dfbef4162d3"] = "Padded Armor";
+                        m_ArmourTypesDescription["e7789ce40b9e4878922af7f8f7f9f534"] = "Scalemail";
+                        m_ArmourTypesDescription["18552b85ceb6491190f21fdb086bff76"] = "Studded Leather";
+                    }
+                    catch (Exception e)
+                    {
+                        Main.logger.Error(e.ToString());
+                        throw;
+                    }
                 }
-                return m_Enchants2;
+                return m_ArmourTypesDescription;
             }
         }
-        public static Dictionary<string, string> m_Enchants2;
+        public static Dictionary<string, string> m_ArmourTypesDescription;
 
         public static Dictionary<int, string> EnhancementBoni
         {
@@ -215,7 +220,7 @@ namespace Findus
             }*/
             foreach (var enchantment in findus.Enchantments.ToTempList())
             {
-                if ((EnchantsTier1.Values.Contains(enchantment.Blueprint.AssetGuidThreadSafe) && FindusSettings.Instance.Enchantment1GUID != enchantment.Blueprint.AssetGuidThreadSafe) || (EnchantsTier2.Values.Contains(enchantment.Blueprint.AssetGuidThreadSafe) && FindusSettings.Instance.Enchantment2GUID != enchantment.Blueprint.AssetGuidThreadSafe) || (enchantmentguid != enchantment.Blueprint.AssetGuidThreadSafe && EnhancementBoni.ContainsValue(enchantment.Blueprint.AssetGuidThreadSafe)) || (Materials.Values.Contains(enchantment.Blueprint.AssetGuidThreadSafe) && FindusSettings.Instance.MaterialGuid != enchantment.Blueprint.AssetGuidThreadSafe))
+                if ((EnchantsTier1.Values.Contains(enchantment.Blueprint.AssetGuidThreadSafe) && FindusSettings.Instance.Enchantment1GUID != enchantment.Blueprint.AssetGuidThreadSafe) || (enchantmentguid != enchantment.Blueprint.AssetGuidThreadSafe && EnhancementBoni.ContainsValue(enchantment.Blueprint.AssetGuidThreadSafe)) || (Materials.Values.Contains(enchantment.Blueprint.AssetGuidThreadSafe) && FindusSettings.Instance.MaterialGuid != enchantment.Blueprint.AssetGuidThreadSafe))
                 {
                     findus.RemoveEnchantment(enchantment);
                 }
@@ -225,7 +230,6 @@ namespace Findus
                 findus.AddEnchantment(ResourcesLibrary.TryGetBlueprint<BlueprintWeaponEnchantment>(enchantmentguid), new MechanicsContext(default));
             }
             if (FindusSettings.Instance.Enchantment1GUID != null && !findus.Enchantments.Any(a => a.Blueprint.AssetGuidThreadSafe == FindusSettings.Instance.Enchantment1GUID)) findus.AddEnchantment(ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(FindusSettings.Instance.Enchantment1GUID), new MechanicsContext(default));
-            if (FindusSettings.Instance.Enchantment2GUID != null && !findus.Enchantments.Any(a => a.Blueprint.AssetGuidThreadSafe == FindusSettings.Instance.Enchantment2GUID)) findus.AddEnchantment(ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(FindusSettings.Instance.Enchantment2GUID), new MechanicsContext(default));
             if (FindusSettings.Instance.MaterialGuid != null && !findus.Enchantments.Any(a => a.Blueprint.AssetGuidThreadSafe == FindusSettings.Instance.MaterialGuid)) findus.AddEnchantment(ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(FindusSettings.Instance.MaterialGuid), new MechanicsContext(default));
             // Main.logger.Log("Sucessfully added enchantments.");
         }

@@ -103,6 +103,5 @@ namespace Findus
         public static FindusSettings Instance = new FindusSettings();
         public string MaterialGuid;
         public string Enchantment1GUID;
-        public string Enchantment2GUID;
     }
 }
